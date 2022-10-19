@@ -1,4 +1,3 @@
-import mysql.connector
 import hashlib
 import config
 
@@ -10,6 +9,9 @@ def getSHA(password):
 
 def login(username, password):
     database = config.get_database()
+    if not database:
+        print('something wrong with connection')
+        return False
     mycursor = database.cursor()
     mycursor.execute(config.QUERRY_LOGIN, (username, getSHA(password)))
     result = mycursor.fetchall()
