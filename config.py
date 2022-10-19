@@ -3,7 +3,7 @@ DATABASE_HOST = 'remotemysql.com'
 DATABASSE_USER = 'LKxXNksPlP'
 DATABASE_NAME = 'LKxXNksPlP'
 DATABASSE_PASSWORD = 'LGh76olfte'
-PORT = '3360'
+# PORT = '3360'
 
 QUERRY_LOGIN = "SELECT username, password FROM login WHERE username=%s AND password= %s"
 QUERRY_GET_PATIENT = "select ID, name, mobile, gender, age, medical_history from patient"
