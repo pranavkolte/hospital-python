@@ -14,7 +14,6 @@ def convert_result(li):
 def set_result(li):
     new_dict = {}
     for item in li:
-        keyy = li.index(item)
         uid = 'none'
         name = 'none'
         mobile = 'none'
@@ -35,17 +34,17 @@ def set_result(li):
             if id == 5:
                 con = str(val)
             # print(f"{li.index(item)} - {id} : {val}")
-        new_dict[keyy] = {"uid": uid,
-                          "name": name,
-                          "mobile": mobile,
-                          "gender": gender,
-                          "age": age,
-                          "con": con}
+        new_dict[int(uid)] = {"uid": uid,
+                              "name": name,
+                              "mobile": mobile,
+                              "gender": gender,
+                              "age": age,
+                              "medical_history": con}
 
     return new_dict
 
 
-def fetch_list():
+def get_list():
     database = config.get_database()
     cur = database.cursor()
     cur.execute(config.QUERRY_GET_PATIENT)
@@ -57,7 +56,7 @@ def fetch_list():
 
 
 if __name__ == '__main__':
-    n = fetch_list()
+    n = get_list()
     print("| uid|   Name          |")
     print("------------------------")
     for item in n:

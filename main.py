@@ -10,8 +10,8 @@ def executeChoice(choice):
     os.system('cls')
     if choice == 1:
         print("Loading Patient List.....")
-        patient_dict = get_patient.fetch_list()
-        return display.display_patient(patient_dict)
+        patient_dict = get_patient.get_list()
+        return display.display_patient_list(patient_dict)
     elif choice == 2:
         return add_patient.addPatient()
     else:
