@@ -1,9 +1,11 @@
+from cmath import log
 import add_patient
 import os
 import login
 import display
 import get_patient
 import time
+import update_patient
 
 
 def executeChoice(choice):
@@ -14,8 +16,13 @@ def executeChoice(choice):
         return display.display_patient_list(patient_dict)
     elif choice == 2:
         return add_patient.addPatient()
+    elif choice == 3:
+        return update_patient.update()
+    elif choice == 4:
+        return login_main()
     else:
         print("enter valid choice\n")
+        time.sleep(1)
         getChoice()
 
 
@@ -24,7 +31,7 @@ def getChoice():
         os.system('cls')
         try:
             choice = int(
-                input("1.show patient \n2.add patient \n \nEnter your choice : "))
+                input("1.show patient \n2.add patientv \n3.Update Patient \n4.Log Out\n\nEnter your choice : "))
             print('wait a moment')
             time.sleep(1)
             return executeChoice(choice)
@@ -36,21 +43,21 @@ def getChoice():
 def login_main():
 
     while True:
+        os.system('cls')
         username = input('Enter username : ')
         password = input('Enter password : ')
         result = login.login(username, password)
         if result:
             print('Login successfull!!!\n')
             time.sleep(2)
-            return True
+            return getChoice()
         else:
-            print('Wrong credentials. Try again. \n')
+            print('\n Login Failed. Wrong credentials. Try again. \n')
 
 
-def main():
-    if login_main():
-        getChoice()
+# def main():
+#     login_main()
 
 
 if __name__ == '__main__':
-    main()
+    login_main()

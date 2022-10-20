@@ -20,6 +20,7 @@ def set_result(li):
         gender = 'none'
         age = 'none'
         con = 'none'
+        address = 'none'
         for id, val in enumerate(item):
             if id == 0:
                 uid = str(val)
@@ -33,13 +34,17 @@ def set_result(li):
                 age = str(val)
             if id == 5:
                 con = str(val)
-            # print(f"{li.index(item)} - {id} : {val}")
+            if id == 6:
+                address = str(val)
+
+                # print(f"{li.index(item)} - {id} : {val}")
         new_dict[int(uid)] = {"uid": uid,
                               "name": name,
                               "mobile": mobile,
                               "gender": gender,
                               "age": age,
-                              "medical_history": con}
+                              "medical_history": con,
+                              "address": address}
 
     return new_dict
 
@@ -58,6 +63,6 @@ def get_list():
 if __name__ == '__main__':
     n = get_list()
     print("| uid|   Name          |")
-    print("------------------------")
+    print("-----+-----------------|")
     for item in n:
         print(f"|{n[item]['uid'] : >3} | {n[item]['name'] : <15} |")

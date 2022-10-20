@@ -17,8 +17,6 @@ def upload_addPatient(name, gender, age, mobile, address, medical_history):
 
     try:
         database = config.get_database()
-        if not database:
-            return False
         mycursor = database.cursor()
         mycursor.execute(config.QUERRY_ADD_PATIENT,
                          (name, gender, age, mobile, address, medical_history))
