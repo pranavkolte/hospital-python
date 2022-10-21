@@ -17,11 +17,12 @@ def executeChoice(choice):
     elif choice == 2:
         return add_patient.addPatient()
     elif choice == 3:
-        return login_main()
+        if login.logout():
+            login_main()
     else:
         print("enter valid choice\n")
         time.sleep(1)
-        getChoice()
+        return getChoice()
 
 
 def getChoice():
@@ -40,6 +41,9 @@ def getChoice():
 
 def login_main():
 
+    if login.check_status():
+        return getChoice()
+
     while True:
         os.system('cls')
         username = input('Enter username : ')
@@ -55,7 +59,5 @@ def login_main():
 
 # def main():
 #     login_main()
-
-
 if __name__ == '__main__':
     login_main()
