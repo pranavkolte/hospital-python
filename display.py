@@ -2,32 +2,32 @@ import os
 import get_patient
 import main
 import update_patient
+from prettytable import PrettyTable
 
 
 def show_patient(patient_dict):
     os.system('cls')
-    print("| UID|   Name          |")
-    print("|----+-----------------|")
+    patientTable = PrettyTable()
+    patientTable.field_names = ["UID", "Name"]
     num = 0
     for UID in patient_dict:
         num = UID
-        print(
-            f"|{patient_dict[UID]['uid'] : >3} | {patient_dict[UID]['name'] : <15} |")
-        print("|----+-----------------|")
+        patientTable.add_row(
+            [patient_dict[UID]['uid'], patient_dict[UID]['name']])
+    print(patientTable)
     return num
 
 
 def display_patient_list(patient_dict):
     os.system('cls')
-    print("| UID|   Name          |")
-    print("|----+-----------------|")
+    patientTable = PrettyTable()
+    patientTable.field_names = ["UID", "Name"]
     num = 0
     for UID in patient_dict:
         num = UID
-        print(
-            f"|{patient_dict[UID]['uid'] : >3} | {patient_dict[UID]['name'] : <15} |")
-        print("|----+-----------------|")
-    # print(f"\n\n {len(patient_dict.keys())}")
+        patientTable.add_row(
+            [patient_dict[UID]['uid'], patient_dict[UID]['name']])
+    print(patientTable)
     while True:
         try:
             choice = int(input("\n\nBack : 0\nPatient UID = "))
@@ -48,11 +48,15 @@ def display_patient(uid):
     os.system('cls')
     print('Loadind Patient Details..........\n\n')
     patient_dict = get_patient.get_list()
-    print("| uid|   Name          | Gender| Age|                         Medical History                          |")
-    print("|----+-----------------+-------+----+------------------------------------------------------------------|")
-    print(
-        f"""|{patient_dict[uid]['uid'] : >3} | {patient_dict[uid]['name'] : <15} | {patient_dict[uid]['gender'] : <6}| {patient_dict[uid]['age'] : <3}| {patient_dict[uid]['medical_history'] : <65}|""")
-    print("|----+-----------------+-------+----+------------------------------------------------------------------|\n\n")
+    pattient_table = PrettyTable()
+    pattient_table.field_names = [
+        "UID", "Name", "Gender", "Age", "Medical History"]
+    pattient_table.add_row([patient_dict[uid]['uid'],
+                           patient_dict[uid]['name'],
+                           patient_dict[uid]['gender'],
+                           patient_dict[uid]['age'],
+                           patient_dict[uid]['medical_history']])
+    print(pattient_table)
     while True:
         try:
             choice = int(

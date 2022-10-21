@@ -17,8 +17,6 @@ def executeChoice(choice):
     elif choice == 2:
         return add_patient.addPatient()
     elif choice == 3:
-        return update_patient.update()
-    elif choice == 4:
         return login_main()
     else:
         print("enter valid choice\n")
@@ -31,7 +29,7 @@ def getChoice():
         os.system('cls')
         try:
             choice = int(
-                input("1.show patient \n2.add patientv \n3.Update Patient \n4.Log Out\n\nEnter your choice : "))
+                input("1.show patient \n2.add patientv \n3.Log Out\n\nEnter your choice : "))
             print('wait a moment')
             time.sleep(1)
             return executeChoice(choice)
