@@ -1,5 +1,6 @@
-from operator import add
+import time
 import config
+import display
 
 
 def addPatient():
@@ -10,7 +11,11 @@ def addPatient():
     mobile = input('Mobile = ')
     address = input('Address = ')
     medical_history = input('Medical History = ')
-    return upload_addPatient(name=name, gender=gender, age=age, mobile=mobile, address=address, medical_history=medical_history)
+    if upload_addPatient(name=name, gender=gender, age=age, mobile=mobile, address=address, medical_history=medical_history):
+        print("\nSaving.....")
+        time.sleep(1)
+        display.display_patient_list()
+    return False
 
 
 def upload_addPatient(name, gender, age, mobile, address, medical_history):

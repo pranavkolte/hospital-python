@@ -18,7 +18,7 @@ def show_patient(patient_dict):
     return num
 
 
-def display_patient_list(patient_dict):
+def display_patient_list(patient_dict=get_patient.get_list()):
     os.system('cls')
     patientTable = PrettyTable()
     patientTable.field_names = ["UID", "Name"]
