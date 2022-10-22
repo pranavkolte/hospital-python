@@ -1,6 +1,7 @@
 from cmath import log
 import add_patient
 import os
+import sys
 import login
 import display
 import get_patient
@@ -19,6 +20,8 @@ def executeChoice(choice):
     elif choice == 3:
         if login.logout():
             login_main()
+    elif choice == 4:
+        sys.exit()
     else:
         print("enter valid choice\n")
         time.sleep(1)
@@ -30,7 +33,7 @@ def getChoice():
         os.system('cls')
         try:
             choice = int(
-                input("1.show patient \n2.add patientv \n3.Log Out\n\nEnter your choice : "))
+                input("1.show patient \n2.add patientv \n3.Log Out\n4.Exit\n\n\nEnter your choice : "))
             print('wait a moment')
             time.sleep(1)
             return executeChoice(choice)
