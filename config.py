@@ -2,11 +2,11 @@ import mysql.connector
 import socket
 
 
-DATABASE_HOST = 'remotemysql.com'
-DATABASSE_USER = 'LKxXNksPlP'
-DATABASE_NAME = 'LKxXNksPlP'
-DATABASSE_PASSWORD = 'LGh76olfte'
-PORT = '3360'
+DATABASE_HOST = '<hostname>'
+DATABASSE_USER = '<username>'
+DATABASE_NAME = '<database name>'
+DATABASSE_PASSWORD = '<password>'
+
 QUERRY_CHECK_LOGIN_STATUS = "SELECT IP, status FROM login"
 QUERRY_LOGIN = "SELECT ID, username, password FROM login WHERE username=%s AND password= %s"
 QUERRY_SET_LOGIN_STATUS = "UPDATE login SET IP=%s, status=%s WHERE ID=%s"
